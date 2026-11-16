@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>東海道五十三次 ジョギング走破</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- ヘッダー -->
+        <header>
+            <h1>東海道五十三次 ジョギング走破</h1>
+            <div class="total-distance">総走行距離: <span id="totalKm">0.0</span> km / 425.6 km</div>
+        </header>
+
+        <!-- メインコンテンツ -->
+        <div class="content">
+
+            <!-- 現在地・次の目標エリア -->
+            <div class="current-card">
+                <div class="current-title">📍 現在の到達地点</div>
+                <div class="current-name" id="currentName">1. 日本橋（起点）</div>
+                <div class="current-pref" id="currentPref">東京都中央区</div>
+
+                <!-- 浮世絵表示エリア -->
+                <div class="ukiyoe-box" id="ukiyoeBox">
+                    <img id="ukiyoeImg" src="" alt="宿場の浮世絵" onerror="this.style.display='none'; document.getElementById('ukiyoePlaceholder').style.display='flex';">
+                    <div id="ukiyoePlaceholder" class="ukiyoe-placeholder">
+                        🖼️ ここに「<span id="placeholderName">日本橋</span>」の浮世絵が入ります
+                    </div>
+                </div>
+
+                <div class="current-desc" id="currentDesc">すべての旅の始まり。お江戸の風景。</div>
+                
+                <div class="next-target" id="nextTargetBox">
+                    次の <span id="nextName">川崎宿</span> まで <span id="remainKm">あと 14.1 km</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" id="progressBar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 記録入力エリア -->
+            <div class="input-section">
+                <h2>🏃‍♂️ 今日のジョギングを記録</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="runDate">日付</label>
+                        <input type="date" id="runDate" min="2026-01-01" max="2030-12-31">
+                    </div>
+                    <div class="form-group">
+                        <label for="runDistance">走行距離 (km)</label>
+                        <input type="number" id="runDistance" step="0.1" min="0.1" placeholder="例: 5.5">
+                    </div>
+                </div>
+                <!-- ボタンに直接 onclick="addRecord()" を指定してイベント抜けを防いでいます -->
+                <button class="btn-submit" id="addBtn" onclick="addRecord()">記録して旅を進める！</button>
+            </div>
+
+
+            <!-- 宿場町一覧エリア -->
+            <div class="list-section">
+                <h2>📜 宿場町ロードマップ（全14地点）</h2>
+                <ul class="checkpoint-list" id="checkpointList">
+                    <!-- JavaScriptで自動生成 -->
+                </ul>
+            </div>
+
+            <!-- 過去の走行履歴エリア -->
+            <div class="history-section">
+                <h2>👟 これまでの走行履歴</h2>
+                <ul class="history-list" id="historyList">
+                    <!-- JavaScriptで自動生成 -->
+                </ul>
+            </div>
+
+            <div style="margin-top: 15px; text-align: right;">
+    <button onclick="resetAllData()" style="background-color: #ef4444; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">
+        🗑️ すべての記録をリセット
+    </button>
+</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
